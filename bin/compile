@@ -114,7 +114,16 @@ else
     echo "-----> Using rustup to install Rust channel $VERSION"
     ./rustup.sh -y --default-toolchain "$VERSION"
     rm rustup.sh
+    echo "-----> Installing wasm target"
+    rustup target add wasm32-unknown-unknown
 fi
+
+echo "-----> Installing cargo-update"
+cargo install cargo-update || true
+
+echo "-----> Updating wasm-pack and wasm-bindgen-cli"
+cargo install-update -i wasm-pack wasm-bindgen-cli
+
 if [ ! -x "$CARGO_HOME/bin/rustc" ]; then
   echo "failed: Cannot find Rust binaries at $CARGO_HOME"
   exit 1
