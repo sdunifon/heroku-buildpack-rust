@@ -16,7 +16,7 @@ fi
 
 # Set defaults for our configuration variables.  Stable Rust is sufficiently
 # stable at this point that I think we can just default it.
-VERSION=stable
+VERSION=nightly
 
 # Set this to "1" in `RustConfig` to just install a Rust toolchain and not
 # build `Cargo.toml`.  This is useful if you have a project written in Ruby
